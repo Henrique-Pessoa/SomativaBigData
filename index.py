@@ -19,17 +19,44 @@ plt.show()
 
 newData = pd.get_dummies(data,columns=['nome ação'],drop_first=True)
 
+
 kmeans = KMeans(n_clusters=4) 
 kmeans.fit(newData) 
 
-print(kmeans.inertia_)
+sse = kmeans.inertia_
 
 labels = kmeans.labels_ 
 centroids = kmeans.cluster_centers_
 
-plt.scatter(data['preço ação R$'],data['qtde cotas'],data["valor de mercado R$ -(Bilhões)"], c= labels)
+plt.scatter(data["valor de mercado R$ -(Bilhões)"],data["qtde cotas"],data['preço ação R$'],c=labels) 
 plt.scatter(centroids[:, 4], centroids[:, 4], marker='x', color='red') 
+plt.title(label="cluster = 4")
+plt.show()
 
+kmeans = KMeans(n_clusters=5) 
+kmeans.fit(newData) 
+
+sse = kmeans.inertia_
+
+labels = kmeans.labels_ 
+centroids = kmeans.cluster_centers_
+
+plt.scatter(data["valor de mercado R$ -(Bilhões)"],data["qtde cotas"],data['preço ação R$'],c=labels) 
+plt.scatter(centroids[:, 4], centroids[:, 4], marker='x', color='red') 
+plt.title(label="cluster = 5")
+plt.show()
+
+kmeans = KMeans(n_clusters=8) 
+kmeans.fit(newData) 
+
+sse = kmeans.inertia_
+
+labels = kmeans.labels_ 
+centroids = kmeans.cluster_centers_
+
+plt.scatter(data["valor de mercado R$ -(Bilhões)"],data["qtde cotas"],data['preço ação R$'],c=labels) 
+plt.scatter(centroids[:, 4], centroids[:, 4], marker='x', color='red') 
+plt.title(label="cluster = 8")
 plt.show()
 
 fig = plt.figure(figsize=(15,15))
@@ -42,7 +69,7 @@ plt.show()
 print(">>>>>>>>>>>>>>>>>>>>>>>Resposta 5<<<<<<<<<<<<<<<<<<<<<<<")
 
 print("Dentre varias caracteristicas diferentes eu acredito que o aprendizado não supervisionado, ajuda quando os dados estão bem espalhados e não estão bem definidos,a maior vantagem do aprendizado não supervisioado eu acredito que seja a facilidade de encontrar padrões")
-
+print("#############################################################################")
 
 price = np.array(data["preço ação R$"])
 value = np.array(data["valor de mercado R$ -(Bilhões)"])

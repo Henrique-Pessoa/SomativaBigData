@@ -1,0 +1,1 @@
+Dentre varias caracteristicas diferentes eu acredito que o aprendizado não supervisionado, ajuda quando os dados estão bem espalhados e não estão bem definidos,a maior vantagem do aprendizado não supervisioado eu acredito que seja a facilidade de encontrar padrões
